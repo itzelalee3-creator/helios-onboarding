@@ -1,0 +1,360 @@
+@import "tailwindcss";
+
+:root {
+  --color-void: #05070a;
+  --color-surface: #0d131c;
+  --color-surface-raised: #141d2b;
+  --color-surface-hairline: #1c2635;
+  --color-border: #24344a;
+  --color-border-strong: #34506e;
+
+  --color-ink: #f5f8fb;
+  --color-ink-muted: #9fb0c3;
+  --color-ink-faint: #64768c;
+
+  --color-blue: #3fa9f5;
+  --color-blue-strong: #6fc3ff;
+  --color-blue-dim: #163a57;
+
+  --color-orange: #ff6a1a;
+  --color-orange-strong: #ff8a44;
+  --color-orange-dim: #4a2410;
+
+  --color-teal: #2fade0;
+  --color-teal-strong: #5cc4ea;
+  --color-teal-dim: #123a4a;
+
+  --color-paper: #fbfcfd;
+  --color-paper-soft: #f9f9fb;
+  --color-charcoal: #1d1d1f;
+  --color-charcoal-muted: #55636f;
+  --color-slate: #8a94a6;
+
+  --font-display: var(--font-space-grotesk);
+  --font-heavy: var(--font-archivo-black);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+@theme inline {
+  --color-void: var(--color-void);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+  --color-surface-hairline: var(--color-surface-hairline);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-ink-faint: var(--color-ink-faint);
+
+  --color-blue: var(--color-blue);
+  --color-blue-strong: var(--color-blue-strong);
+  --color-blue-dim: var(--color-blue-dim);
+
+  --color-orange: var(--color-orange);
+  --color-orange-strong: var(--color-orange-strong);
+  --color-orange-dim: var(--color-orange-dim);
+
+  --color-teal: var(--color-teal);
+  --color-teal-strong: var(--color-teal-strong);
+  --color-teal-dim: var(--color-teal-dim);
+
+  --color-paper: var(--color-paper);
+  --color-paper-soft: var(--color-paper-soft);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-muted: var(--color-charcoal-muted);
+  --color-slate: var(--color-slate);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-heavy: var(--font-heavy);
+  --font-mono: var(--font-mono);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-orange);
+  color: var(--color-void);
+}
+
+/* Technical blueprint grid used behind placeholder assets */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--color-surface-hairline) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-surface-hairline) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Premium mesh-gradient background: soft blue/orange blooms drifting over near-black */
+.bg-mesh {
+  background-color: var(--color-void);
+  background-image:
+    radial-gradient(ellipse 70% 55% at 18% 8%, color-mix(in srgb, var(--color-blue) 22%, transparent), transparent 60%),
+    radial-gradient(ellipse 55% 50% at 88% 18%, color-mix(in srgb, var(--color-orange) 16%, transparent), transparent 62%),
+    radial-gradient(ellipse 60% 55% at 50% 105%, color-mix(in srgb, var(--color-blue-strong) 14%, transparent), transparent 65%);
+}
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+@keyframes drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4%, 6%) scale(1.08); }
+}
+@keyframes drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-5%, -4%) scale(1.05); }
+}
+@keyframes drift-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3%, -5%) scale(1.1); }
+}
+
+.animate-drift-a { animation: drift-a 22s ease-in-out infinite; }
+.animate-drift-b { animation: drift-b 28s ease-in-out infinite; }
+.animate-drift-c { animation: drift-c 34s ease-in-out infinite; }
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Content swap fade used by interactive tab/timeline-style pickers
+   (e.g. WorkshopValuesTimeline) — keyed by the active index so React
+   remounts the panel and this animation replays on every change. */
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero "CENTRO DE CAPACITACIÓN" pill: true clear glass — light-tinted,
+   heavily blurred (so background shapes read through, distorted) — with
+   a crisp vibrant-orange hairline border and matching orange text. No
+   icon, no inner texture — just the outline, the glass, and the text.
+   backdrop-filter is applied separately via Tailwind's backdrop-blur-md
+   utility class (not here) — Next.js's CSS minifier silently strips a
+   plain backdrop-filter/-webkit-backdrop-filter pair from this file. */
+.hero-badge {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1.5px solid var(--color-orange);
+  box-shadow:
+    0 8px 24px rgba(255, 106, 26, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  border-radius: 9999px;
+  padding: 6px 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  color: var(--color-orange);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Header label beside the logo: "AREA DE MANUFACTURA" */
+.hero-header-label {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  color: var(--color-orange);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Apple-style system font stack, used for the light sections below the
+   hero (mission, phases, materials) instead of the site's mono/display
+   fonts, which stay reserved for the technical manual pages. */
+.font-apple {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+}
+
+/* Small uppercase section label ("NUESTRA MISIÓN", "RUTA DE APRENDIZAJE"),
+   replacing the monospace eyebrow used on the dark technical pages. */
+.section-eyebrow {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Light glassmorphic card: semi-transparent white, soft blur, hairline
+   border, gentle shadow — used for the placeholder and phase cards below
+   the hero. */
+.card-glass-light {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px -12px rgba(29, 29, 31, 0.12);
+}
+
+/* Slow, hypnotic drift of the hero's orange/cyan gradient angle */
+@keyframes gradientMovement {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero-gradient-animated {
+  background-size: 200% 200%;
+  animation: gradientMovement 18s ease-in-out infinite;
+}
+
+/* Aurora / kinetic-fluid layers: two large, overscaled, blurred conic
+   gradients counter-rotating at different speeds so the orange/cyan hues
+   swirl and blend into each other continuously. Overscaled + blurred so
+   there's never a hard edge or visible center point. */
+@keyframes aurora-spin-cw {
+  from { transform: rotate(0deg) scale(1.7); }
+  to { transform: rotate(360deg) scale(1.7); }
+}
+@keyframes aurora-spin-ccw {
+  from { transform: rotate(0deg) scale(1.9); }
+  to { transform: rotate(-360deg) scale(1.9); }
+}
+.hero-aurora-1 {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(255, 149, 0, 0.26),
+    rgba(92, 196, 234, 0.2),
+    rgba(255, 106, 26, 0.16),
+    rgba(47, 173, 224, 0.22),
+    rgba(255, 149, 0, 0.26)
+  );
+  filter: blur(70px);
+  animation: aurora-spin-cw 32s linear infinite;
+}
+.hero-aurora-2 {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(47, 173, 224, 0.18),
+    rgba(255, 149, 0, 0.14),
+    rgba(92, 196, 234, 0.2),
+    rgba(255, 106, 26, 0.12),
+    rgba(47, 173, 224, 0.18)
+  );
+  filter: blur(95px);
+  animation: aurora-spin-ccw 44s linear infinite;
+}
+
+/* Ambient reflected glow behind the aircraft / wordmark, echoing the
+   aurora hues so they feel lit from the same source rather than pasted on. */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.08); }
+}
+.hero-reflection-glow {
+  filter: blur(60px);
+  animation: glow-pulse 9s ease-in-out infinite;
+}
+
+/* Sound toggle pill (SoundToggleButton.tsx): orange-glass pill, white
+   icon + label. A static "Mejora la experiencia" caption renders below it
+   in the component — no animation, no orbiting text. */
+.boton-onboarding {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 138, 68, 0.22);
+  border: 1px solid rgba(255, 138, 68, 0.55);
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.boton-onboarding:hover {
+  background: rgba(255, 138, 68, 0.35);
+  border-color: rgba(255, 138, 68, 0.8);
+}
+.boton-onboarding:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-blue-strong);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* card-fan-carousel.tsx sizing — the copied 21st.dev component targets
+   .fan-card via querySelectorAll and animates it entirely through GSAP
+   x/y/rotation/scale, but ships no width/height of its own. Without an
+   explicit size, an absolutely-positioned .fan-card with no intrinsic
+   content size collapses to 0x0. These breakpoints mirror the component's
+   own getHeightMultiplier() ideal heights (22/26/28/34/38rem) so the
+   built-in responsive multipliers stay proportional to the actual card
+   size. The .fan-carousel-scale wrapper (in TeamWelcomeSection) shrinks
+   the whole thing down to fit the side-gallery slot without touching any
+   of this or the component's internals. */
+.fan-card {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 15rem;
+  height: 22rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid #fff;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+@media (min-width: 640px) {
+  .fan-card { width: 17rem; height: 26rem; }
+}
+@media (min-width: 768px) {
+  .fan-card { width: 18rem; height: 28rem; }
+}
+@media (min-width: 1024px) {
+  .fan-card { width: 22rem; height: 34rem; }
+}
+@media (min-width: 1280px) {
+  .fan-card { width: 24rem; height: 38rem; }
+}
