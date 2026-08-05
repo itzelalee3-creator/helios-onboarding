@@ -75,14 +75,15 @@ export function FaqSuggestionsSection() {
                       />
                     </button>
                     <div
-                      className="grid transition-[grid-template-rows] duration-300 ease-out"
-                      style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                      className="overflow-hidden transition-[max-height,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                      style={{
+                        maxHeight: isOpen ? "320px" : "0px",
+                        opacity: isOpen ? 1 : 0,
+                      }}
                     >
-                      <div className="overflow-hidden">
-                        <p className="font-apple px-5 pb-5 text-sm leading-relaxed text-charcoal-muted sm:px-6 sm:pb-6">
-                          {item.answer}
-                        </p>
-                      </div>
+                      <p className="font-apple px-5 pb-5 text-sm leading-relaxed text-charcoal-muted sm:px-6 sm:pb-6">
+                        {item.answer}
+                      </p>
                     </div>
                   </div>
                 </StaggerItem>
