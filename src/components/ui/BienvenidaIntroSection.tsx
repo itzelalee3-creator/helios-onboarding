@@ -20,7 +20,7 @@ export function BienvenidaIntroSection({
   }
 
   return (
-    <section className="relative flex h-screen w-full flex-col items-center justify-center px-6 text-center">
+    <section className="relative flex h-[calc(100vh-73px)] w-full flex-col items-center justify-center px-6 text-center">
       <span className="font-mono text-xs tracking-[0.2em] text-sky-300 drop-shadow-md">
         {kicker}
       </span>
@@ -34,7 +34,7 @@ export function BienvenidaIntroSection({
       <button
         type="button"
         onClick={scrollToContent}
-        className="font-apple absolute inset-x-0 bottom-10 z-10 mx-auto flex w-fit flex-col items-center gap-2 text-white transition-opacity hover:opacity-80"
+        className="font-apple absolute inset-x-0 bottom-28 z-10 mx-auto flex w-fit flex-col items-center gap-2 text-white transition-opacity hover:opacity-80 sm:bottom-10"
       >
         <span className="text-sm font-medium tracking-wide drop-shadow-md">
           {ctaLabel}

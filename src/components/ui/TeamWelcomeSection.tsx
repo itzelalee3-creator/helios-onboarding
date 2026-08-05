@@ -111,7 +111,7 @@ export function TeamWelcomeSection() {
           escritorio quedan pegadas a los bordes izquierdo/derecho; en
           móvil se reacomodan como un par centrado más abajo. */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-40 z-20 flex items-center justify-center gap-8 px-6 sm:inset-x-0 sm:justify-between sm:gap-0 sm:px-[118px] sm:bottom-28"
+        className="pointer-events-none absolute inset-x-0 bottom-40 z-20 flex items-center justify-center gap-16 px-6 sm:inset-x-0 sm:justify-between sm:gap-0 sm:px-[118px] sm:bottom-28"
         style={{
           opacity: revealed ? 1 : 0,
           transition: "opacity 1400ms ease-out 500ms",
