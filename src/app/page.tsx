@@ -94,7 +94,7 @@ export default function Home() {
           <div className="relative mx-auto max-w-6xl">
             <SectionReveal>
               <p className="section-eyebrow text-orange">RUTA DE APRENDIZAJE</p>
-              <h2 className="font-apple mt-3 mb-4 whitespace-nowrap text-2xl font-extrabold leading-tight tracking-tight text-black md:text-3xl lg:text-4xl xl:text-[50.7px]">
+              <h2 className="font-apple mt-3 mb-4 text-2xl font-extrabold leading-tight tracking-tight text-black md:whitespace-nowrap md:text-3xl lg:text-4xl xl:text-[50.7px]">
                 Bienvenido! aprende sobre nuestra manufactura
               </h2>
               <p className="w-full text-left text-sm font-light tracking-[0.03em] leading-relaxed text-slate-500 mt-2 mb-8 sm:text-base">

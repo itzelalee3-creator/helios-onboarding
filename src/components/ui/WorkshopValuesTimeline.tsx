@@ -56,7 +56,8 @@ export function WorkshopValuesTimeline() {
     <div>
       <p className="mb-4 text-xs italic tracking-wide text-white/40 md:mb-6">
         <span className="md:hidden">
-          Pasa el cursor o toca cada número para explorar los valores
+          Toca cada número para explorar los valores, desliza hacia un lado
+          para ver más...
         </span>
         <span className="hidden md:inline">
           Pasa el cursor sobre cada número para explorar los valores

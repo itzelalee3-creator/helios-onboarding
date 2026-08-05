@@ -67,9 +67,9 @@ export function MissionVideoSection() {
       {/* Texto flotando directamente sobre el video, alineado a la
           derecha — blanco puro con sombra oscura para contraste directo,
           sin tarjeta ni fondo detrás. */}
-      <div className="relative z-20 mx-auto flex h-full max-w-6xl items-center justify-end px-6 pb-28 sm:px-8 sm:pb-0">
+      <div className="relative z-20 mx-auto flex h-full max-w-6xl items-center justify-center px-6 pb-28 sm:justify-end sm:px-8 sm:pb-0">
         <div
-          className="ml-auto mr-8 max-w-xl text-right transition-[opacity,transform] duration-[900ms] ease-out md:mr-16"
+          className="mx-auto max-w-xl text-center transition-[opacity,transform] duration-[900ms] ease-out sm:ml-auto sm:mr-8 sm:text-right md:mr-16"
           style={{
             opacity: revealed ? 1 : 0,
             transform: revealed ? "translateY(0)" : "translateY(24px)",

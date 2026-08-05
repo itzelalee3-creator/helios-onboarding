@@ -22,7 +22,7 @@ export default function OnboardingHub() {
             <span className="font-mono text-xs tracking-[0.2em] text-teal-strong">
               FASE 1 · INCORPORACIÓN
             </span>
-            <h1 className="text-balance font-apple mt-4 max-w-2xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+            <h1 className="text-balance font-apple mt-4 max-w-2xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
               Antes de tomar una herramienta, entiende el equipo.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/90">
@@ -35,7 +35,7 @@ export default function OnboardingHub() {
 
       <section className="relative bg-transparent">
         <div className="mx-auto max-w-6xl px-6 pt-4 pb-16 sm:px-8">
-          <h2 className="font-apple mt-2 mb-6 whitespace-nowrap text-2xl font-extrabold leading-tight tracking-tight text-black md:text-3xl lg:text-4xl xl:text-[50.7px]">
+          <h2 className="font-apple mt-2 mb-6 text-2xl font-extrabold leading-tight tracking-tight text-black md:whitespace-nowrap md:text-3xl lg:text-4xl xl:text-[50.7px]">
             Comencemos tu capacitación!
           </h2>
 
