@@ -111,7 +111,7 @@ export function Header() {
               type="button"
               onClick={() => setOpen(true)}
               className={cn(
-                "focus-ring flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-light transition-colors",
+                "focus-ring flex items-center gap-2 rounded-full px-4 py-3 text-sm font-light transition-colors sm:py-2.5",
                 isHome
                   ? "bg-charcoal/8 text-charcoal hover:bg-charcoal/12"
                   : "bg-surface-raised text-ink hover:bg-surface-hairline"
@@ -154,7 +154,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         <button
           type="button"
           onClick={onClose}
-          className="focus-ring flex items-center gap-2 rounded-full bg-surface-raised px-4 py-2.5 text-sm text-ink transition-colors hover:bg-surface-hairline"
+          className="focus-ring flex items-center gap-2 rounded-full bg-surface-raised px-4 py-3 text-sm text-ink transition-colors hover:bg-surface-hairline sm:py-2.5"
           aria-label="Close menu"
         >
           Close

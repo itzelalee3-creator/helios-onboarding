@@ -26,11 +26,11 @@ export default function Home() {
               CENTRO DE CAPACITACIÓN
             </span>
           </SectionReveal>
-          <div className="flex flex-col items-center">
-            <p aria-hidden className="font-heavy text-[22vw] leading-[0.8] tracking-tight text-[#000000] sm:text-[17.5vw]">
+          <div className="flex flex-col items-center px-4">
+            <p aria-hidden className="font-heavy text-[20vw] leading-[0.8] tracking-tight text-[#000000] sm:text-[17.5vw]">
               HELIOS
             </p>
-            <p aria-hidden className="font-heavy text-[17vw] leading-[0.8] tracking-tight text-[#000000] sm:text-[13.5vw]">
+            <p aria-hidden className="font-heavy text-[12.5vw] leading-[0.8] tracking-tight text-[#000000] sm:text-[13.5vw]">
               AERODESIGN
             </p>
           </div>
