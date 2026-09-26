@@ -179,7 +179,7 @@ export function MaterialsToolsLanding() {
                 titleClassName={sectionTitleClassName}
               >
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-                  <VideoReelCard src="/videos/fibras.mp4" />
+                  <VideoReelCard src="/videos/fibra-carbono.mp4" />
                   <div className={glassCardClassName}>
                     <p className={bodyTextClassName}>
                       Usamos{" "}
